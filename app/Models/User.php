@@ -41,4 +41,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    protected $primaryKey = 'id';
+    protected $guarded= [];
+
+    public function User()
+    {
+        return $this->belongsTo('App\Models\User','id');
+    }
 }
