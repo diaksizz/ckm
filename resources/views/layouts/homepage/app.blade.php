@@ -37,7 +37,7 @@
         <div class="container">
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href=""><img src="{{asset('images/logockm.jpg')}}" alt="alternative"></a>
+            <a class="navbar-brand logo-image" href=""><img src="{{asset('images/logockm.jpg')}}" style="height:65px; max-width:80px;"  alt="alternative"></a>
 
             <!-- Text Logo - Use this if you don't have a graphic logo -->
             <!-- <a class="navbar-brand logo-text" href="index.html">Nubis</a> -->
