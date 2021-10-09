@@ -2,8 +2,8 @@
 @section('title'.'Home')
 @section('content')
 <!-- Header -->
-<header id="header" class="header" style="color:#116CA8 important;">
-    <div class="container">
+<header id="header" class="header">
+    <div class="container" style="color:#116CA8 important;">
         <div class="row">
             <div class="col-lg-6 col-xl-5">
                 <div class="text-container">
