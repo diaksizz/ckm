@@ -1,5 +1,3 @@
-@extends('homepage.app')
-@section('content')
 <!-- Footer -->
 <div class="footer bg-gray">
     <img class="decoration-circles" src="{{asset ('images/decoration-circles.png')}}" alt="alternative">
@@ -81,4 +79,3 @@
 <script src="{{asset ('js/bootstrap.min.js')}}"></script> <!-- Bootstrap framework -->
 <script src="{{asset ('js/swiper.min.js')}}"></script> <!-- Swiper for image and text sliders -->
 <script src="{{asset ('js/scripts.js')}}"></script> <!-- Custom scripts -->
-@endsection

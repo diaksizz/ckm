@@ -2,9 +2,9 @@
 @section('title'.'Home')
 @section('content')
 <!-- Header -->
-<header id="header" class="header" style="color:#116CA8 important;">
-    <div class="container" style="color:#116CA8 important;">
-        <div class="row" style="color:#116CA8 important;">
+<header id="header" class="header">
+    <div class="container" >
+        <div class="row">
             <div class="col-lg-6 col-xl-5">
                 <div class="text-container">
                     <h1 class="h1-large">CIPTA KREASI MUDA KEDIRI</h1>

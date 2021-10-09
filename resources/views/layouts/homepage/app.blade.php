@@ -84,5 +84,6 @@
     <main style="margin-top: 75px">
         @yield('content')
     </main>
+    @include('layouts.homepage.footer');
 </body>
 </html>
