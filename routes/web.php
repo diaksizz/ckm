@@ -18,7 +18,13 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/admin-produk', [App\Http\Controllers\customerController::class, 'produk'])->name('admin-produk');
+
+Route::get('/artikel/',  [App\Http\Controllers\ArtikelController::class,'allArtikel'])->name('artikel');
+Route::get('/detailArtikel',  [App\Http\Controllers\ArtikelController::class,'detailArtikel'])->name('detailArtikel');
 Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('home');
+
+
+
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
