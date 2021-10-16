@@ -32,6 +32,9 @@ Route::prefix('admin')->group(function(){
     Route::get('/artikel',[adminController::class,'artikelIndex'])->name('artikelIndex');
     Route::get('/artikel/add',[adminController::class,'artikelAdd'])->name('artikelAdd');
     Route::post('/artikel/store',[adminController::class,'storeArtikel'])->name('storeArtikel');
+    Route::get('/artikel/detail/{id}', [adminController::class,'detail'])->name('detail');
+    Route::PATCH('/artikel/update/{id}', [adminController::class,'update_artikel'])->name('update_artikel');
+    Route::any('/artikel/hapus/{id}', [adminController::class,'hapus_artikel'])->name('hapus_artikel');
 
     ////////Produk/////////////////////
     Route::get('/produk',[penjualController::class,'produkIndex'])->name('produkIndex');

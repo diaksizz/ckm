@@ -44,17 +44,17 @@
                     <td>{{Carbon\Carbon::parse($artikel->updated_at)->isoFormat('dddd, D MMMM Y') }}</td>
                     {{--                        <td></td>--}}
                     <td style="width: 20%; text-align: center;">
-                        {{-- <a class="btn btn-primary btn-sm" href="{{ route('detailagenda', $produk->id) }}"> --}}
+                        {{-- <a class="btn btn-primary btn-sm" href="{{ route('detailArtikel', $artikel->id) }}"> --}}
                             <i class="fas fa-pen"></i>&nbsp;  Update </a>
                         @csrf
-                        {{-- <button type="submit" class="btn btn-danger btn-sm" id="btnHapusAgenda{{$produk->id}}"> --}}
+                        {{-- <button type="submit" class="btn btn-danger btn-sm" id="btnHapusAgenda{{$artikel->id}}"> --}}
                             Hapus&nbsp;&nbsp;<i class="fas fa-trash"></i>
                         </button>
                         {{-- <script type="text/javascript">
-                            $("#btnHapusAgenda{{$agenda->id}}").click(function () {
+                            $("#btnHapusAgenda{{$artikel->id}}").click(function () {
                                 Swal.fire({
                                     title: 'Anda Yakin Menghapus Ini?',
-                                    text: "Agenda Yang Dihapus Tidak Bisa Dikembalikan!",
+                                    text: "Artikel Yang Dihapus Tidak Bisa Dikembalikan!",
                                     icon: 'warning',
                                     showCancelButton: true,
                                     confirmButtonColor: '#3085d6',
@@ -64,13 +64,13 @@
                                     if (result.isConfirmed) {
                                         $.ajax({
                                             type: 'get',
-                                            url: "{{route('hapus_agenda')}}",
+                                            url: "{{route('hapus_artikel')}}",
                                             data: {
-                                                id: "{{$agenda->id}}"
+                                                id: "{{$artikel->id}}"
                                             },
                                             success: function () {
                                                 Swal.fire({
-                                                    title: 'Agenda berhasil dihapus !',
+                                                    title: 'Artikel berhasil dihapus !',
                                                     icon: 'success',
                                                     showConfirmButton: false,
                                                     focusConfirm: true,
@@ -82,7 +82,7 @@
                                             error: function () {
                                                 Swal.fire({
                                                     title: 'Oops!',
-                                                    text: 'Agenda gagal dihapus!',
+                                                    text: 'Artikel gagal dihapus!',
                                                     icon: 'error',
                                                     confirmButtonText: 'OK'
                                                 });

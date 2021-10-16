@@ -24,7 +24,7 @@ class adminController extends Controller
          return view('admin.artikel.addArtikel', compact('kategoris','id_user'));
       }
       public function storeArtikel(Request $request){
-          $file = $request->file('foto_artikel');
+          $file = $request->file('foto');
           $original = $file->getClientOriginalName();
           $original2 = pathinfo($original, PATHINFO_FILENAME);
           $file_name = Str::slug($original2, "-");
@@ -41,5 +41,42 @@ class adminController extends Controller
           ]);
 
           return redirect()->route('artikelIndex')->with('success','Tambah Artikel Berhasil');
+      }
+      public function detail($id)
+      {
+          $data = Blog::find($id);
+          $id = $id;
+          return view('admin.artikel.edit_artikel', compact('data','id'));
+      }
+      public function update_artikel(Request $request, $id)
+      {
+          $id = $id;
+          $request->validate([
+              'judul' => 'required',
+              'isi' => 'required',
+          ]);
+          if($request->hasFile('foto')){
+              // dd($request->file('foto'));
+              $file = $request->file('foto');
+              $original = $file->getClientOriginalName();
+              $original2 = pathinfo($original, PATHINFO_FILENAME);
+              $file_name = Str::slug($original2,"-");
+              $imageName = $file_name.'-'.time().'.'.$file->extension();
+              $file->storeAs('public/images/artikel/',$imageName);
+              $request->validate([
+                  'foto' =>'required'
+              ]);
+
+              Blog::where("id", $id)->update(['foto'=>$imageName]);
+          }
+
+          Blog::where("id", $id)->update($request->except(['_token','_method','foto']));
+
+          return redirect()->route('artikels');
+      }
+      public function hapus_artikel($id)
+      {
+          Blog::destroy($id);
+          return redirect()->route('artikel');
       }
 }
