@@ -1,21 +1,19 @@
 <?php
 
-// namespace App\Http\Controllers\Web;
-//
-// use App\Http\Controllers\Controller;
-// use App\Models\Blog;
-// use Carbon\Carbon;
-// use Illuminate\Http\Request;
-// use Illuminate\Support\Str;
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Blog;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ArtikelController extends Controller
 {
     public function allArtikel()
     {
-      return view('pelanggan.Artikel.index');
+      $produks = Produk::all();
+
+      return view('pelanggan.Artikel.index', compact('artikel'));
     }
 
     public function detailArtikel()

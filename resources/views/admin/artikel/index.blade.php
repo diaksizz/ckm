@@ -1,5 +1,5 @@
 @extends('layouts.admin.main')
-@section('title', 'Admin - Produk')
+@section('title', 'Admin - Artikel')
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -7,7 +7,7 @@
             <h1 class="h3 mb-0 text-gray-800" style="border-left: solid black 5px">&nbsp;Agenda</h1>
             <a href="{{route('produkAdd')}}"
                <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-calendar fa-sm text-white-50"></i>&nbsp; Tambah Agenda</a>
+                    class="fas fa-calendar fa-sm text-white-50"></i>&nbsp; Tambah Artikel</a>
         </div>
     </div>
     @if ($message = Session::get('success'))
@@ -22,35 +22,26 @@
     @endif
 
     <div class="table-responsive p-2">
-        <table id="tabelagenda" class="table table-bordered" cellspacing="0" width="100%"
+        <table id="tableartikel" class="table table-bordered" cellspacing="0" width="100%"
                style="width: 100%; margin-left: auto; margin-right: auto;">
             <thead>
             <tr>
                 <th>No</th>
-                <th>Nama</th>
-                <th>Kategori</th>
-                <th>Deskripsi</th>
-                <th>Harga</th>
-                <th>Lokasi</th>
-                <th>No_Telp</th>
-                {{--                    <th style="width: 20%">Artikel Thumbnail</th>--}}
+                <th>Judul</th>
+                <th>Isi</th>
                 <th>Dibuat Tanggal</th>
                 <th>Diubah Tanggal</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody>
-            @forelse ($produks as $produk)
+            @forelse ($artikels as $artikel)
                 <tr>
                     <td> {{ $loop->iteration}} </td>
-                    <td> {{$produk->nama}} </td>
-                    <td> {{$produk->Kategori->nama}} </td>
-                    <td> {{$produk->deskripsi}} </td>
-                    <td> {{$produk->harga}} </td>
-                    <td> {{$produk->lokasi}} </td>
-                    <td> {{$produk->nomer_telp}} </td>
-                    <td>{{Carbon\Carbon::parse($produk->created_at)->isoFormat('dddd, D MMMM Y') }}</td>
-                    <td>{{Carbon\Carbon::parse($produk->updated_at)->isoFormat('dddd, D MMMM Y') }}</td>
+                    <td> {{$artikel->judul}} </td>
+                    <td> {{$artikel->isi}} </td>
+                    <td>{{Carbon\Carbon::parse($artikel->created_at)->isoFormat('dddd, D MMMM Y') }}</td>
+                    <td>{{Carbon\Carbon::parse($artikel->updated_at)->isoFormat('dddd, D MMMM Y') }}</td>
                     {{--                        <td></td>--}}
                     <td style="width: 20%; text-align: center;">
                         {{-- <a class="btn btn-primary btn-sm" href="{{ route('detailagenda', $produk->id) }}"> --}}
@@ -114,7 +105,7 @@
 </div>
 <script>
     $(document).ready(function () {
-        var table = $('#tabelagenda').DataTable({
+        var table = $('#tableartikel').DataTable({
             responsive: true,
             "columnDefs": [{
                 // "orderable": false,
@@ -150,7 +141,7 @@
             "iDisplayLength": 5
         });
         table.buttons().container()
-            .appendTo('#tabelagenda_wrapper .col-md-6:eq(0)');
+            .appendTo('#tableartikel_wrapper .col-md-6:eq(0)');
     });
 </script>
 

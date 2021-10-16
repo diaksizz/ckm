@@ -28,6 +28,12 @@ Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->nam
 
 Auth::routes();
 Route::prefix('admin')->group(function(){
+    ///////////Artikel/////////////////
+    Route::get('/artikel',[adminController::class,'artikelIndex'])->name('artikelIndex');
+    Route::get('/artikel/add',[adminController::class,'artikelAdd'])->name('artikelAdd');
+    Route::post('/artikel/store',[adminController::class,'storeArtikel'])->name('storeArtikel');
+
+    ////////Produk/////////////////////
     Route::get('/produk',[penjualController::class,'produkIndex'])->name('produkIndex');
     Route::get('/produk/add',[penjualController::class,'produkAdd'])->name('produkAdd');
     Route::post('/produk/store',[penjualController::class,'storeProduk'])->name('storeProduk');
