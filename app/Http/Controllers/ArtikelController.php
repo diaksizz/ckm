@@ -49,10 +49,6 @@ class ArtikelController extends Controller
     {
 
     }
-    public function update_artikel()
-    {
-
-    }
     public function hapus_artikel()
     {
 
