@@ -14,7 +14,7 @@
             </div> <!-- end of col -->
             <div class="col-lg-6 col-xl-7">
                 <div class="image-container">
-                    <img class="img-fluid" src="{{asset ('images/home.jpg')}}" alt="alternative">
+                    <img class="img-fluid" style="height:700px; max-width:700px;" src="{{asset ('images/1.png')}}" alt="alternative">
                 </div> <!-- end of image-container -->
             </div> <!-- end of col -->
         </div> <!-- end of row -->
@@ -81,7 +81,7 @@
         <div class="row">
             <div class="col-lg-6 col-xl-7">
                 <div class="image-container">
-                    <img class="img-fluid" src="{{asset ('images/project.jpg')}}" alt="alternative">
+                    <img class="img-fluid" style="height:700px; max-width:700px;" src="{{asset ('images/2.png')}}" alt="alternative">
                 </div> <!-- end of image-container -->
             </div> <!-- end of col -->
             <div class="col-lg-6 col-xl-5">
