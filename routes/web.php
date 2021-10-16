@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\penjualController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +27,10 @@ Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->nam
 
 
 Auth::routes();
+Route::prefix('admin')->group(function(){
+    Route::get('/produk',[penjualController::class,'produkIndex'])->name('produkIndex');
+    Route::get('/produk/add',[penjualController::class,'produkAdd'])->name('produkAdd');
+    Route::post('/produk/store',[penjualController::class,'storeProduk'])->name('storeProduk');
+});
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

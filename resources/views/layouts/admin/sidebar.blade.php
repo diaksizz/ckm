@@ -29,10 +29,10 @@
     <!-- <div class="sidebar-heading">
         Kelola Barang
     </div> -->
-    <li class="nav-item {{ Route::is('admin-produk') ? 'active' : null  }}">
-        <a class="nav-link" href="{{route('admin-produk')}}">
+    <li class="nav-item {{ Route::is('produkIndex') ? 'active' : null  }}">
+        <a class="nav-link" href="{{route('produkIndex')}}">
             <i class="fas fa-calendar"></i>
-            <span>Agenda</span></a>
+            <span>Produk</span></a>
     </li>
     <li class="nav-item {{ Route::is('admin-produk') ? 'active' : null  }}">
         <a class="nav-link" href="{{route('admin-produk')}}">

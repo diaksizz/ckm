@@ -75,7 +75,7 @@
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a class="btn-solid-sm" href="#contact">LOGIN</a>
+                    <a class="btn-solid-sm" href="{{url('/login')}}">LOGIN</a>
                 </span>
             </div> <!-- end of navbar-collapse -->
         </div> <!-- end of container -->
