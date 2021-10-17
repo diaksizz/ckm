@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\penjualController;
+use App\Http\Controllers\adminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,8 @@ Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->nam
 
 Auth::routes();
 Route::prefix('admin')->group(function(){
+    Route::get('/dashboard',[adminController::class,'dashboard'])->name('dashboard');
+
     ///////////Artikel/////////////////
     Route::get('/artikel',[adminController::class,'artikelIndex'])->name('artikelIndex');
     Route::get('/artikel/add',[adminController::class,'artikelAdd'])->name('artikelAdd');

@@ -10,20 +10,27 @@ use Illuminate\Support\Str;
 
 class adminController extends Controller
 {
-      public function artikelIndex(){
+    public function dashboard(){
+
+    
+        return view('admin.dashboard.index');
+    }
+
+
+    public function artikelIndex(){
 
          $blog = Blog::all();
 
          return view('admin.artikel.index', compact('artikels'));
-      }
-      public function artikelAdd(){
+    }
+    public function artikelAdd(){
 
           $id_user = Auth::user()->id; //get id user admin
           $produks = Produk::all(); //get data produk terus digunakan di scroll item
 
          return view('admin.artikel.addArtikel', compact('kategoris','id_user'));
-      }
-      public function storeArtikel(Request $request){
+    }
+     public function storeArtikel(Request $request){
           $file = $request->file('foto');
           $original = $file->getClientOriginalName();
           $original2 = pathinfo($original, PATHINFO_FILENAME);
@@ -41,15 +48,16 @@ class adminController extends Controller
           ]);
 
           return redirect()->route('artikelIndex')->with('success','Tambah Artikel Berhasil');
-      }
-      public function detail($id)
-      {
+    }
+
+    public function detail($id)
+     {
           $data = Blog::find($id);
           $id = $id;
           return view('admin.artikel.edit_artikel', compact('data','id'));
-      }
-      public function update_artikel(Request $request, $id)
-      {
+    }
+    public function update_artikel(Request $request, $id)
+    {
           $id = $id;
           $request->validate([
               'judul' => 'required',
@@ -73,10 +81,10 @@ class adminController extends Controller
           Blog::where("id", $id)->update($request->except(['_token','_method','foto']));
 
           return redirect()->route('artikels');
-      }
-      public function hapus_artikel($id)
-      {
+    }
+    public function hapus_artikel($id)
+    {
           Blog::destroy($id);
           return redirect()->route('artikel');
-      }
+    }
 }
