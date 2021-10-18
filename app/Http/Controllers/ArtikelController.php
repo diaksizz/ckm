@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\Komentar;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -11,7 +12,7 @@ class ArtikelController extends Controller
 {
     public function allArtikel()
     {
-      $produks = Produk::all();
+      $artikel = Blog::all();
 
       return view('pelanggan.Artikel.index', compact('artikel'));
     }
