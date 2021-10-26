@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kategori extends Model
 {
-    use HasFactory;
-    protected $primaryKey = 'id';
+    protected $table = 'kategori';
+    protected $primaryKey = 'id_kategori';
     protected $guarded= [];
 
     public function Produk()
     {
-        return $this->belongsTo('App\Models\Produk','id');
+        return $this->hasMany('App\Models\Produk','id_produk');
     }
 }

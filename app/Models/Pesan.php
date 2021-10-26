@@ -9,10 +9,11 @@ class Pesan extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
+    protected $table = 'pesans';
     protected $guarded= [];
 
     public function User()
     {
-        return $this->hasMany('App\Models\Pesan','id');
+        return $this->hasMany(Pesan::class,'id');
     }
 }
