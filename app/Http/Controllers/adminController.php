@@ -12,7 +12,7 @@ class adminController extends Controller
 {
     public function dashboard(){
 
-    
+
         return view('admin.dashboard.index');
     }
 
@@ -85,6 +85,6 @@ class adminController extends Controller
     public function hapus_artikel($id)
     {
           Blog::destroy($id);
-          return redirect()->route('artikel');
+          return redirect()->back();
     }
 }
