@@ -9,6 +9,7 @@ class Blog extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
+    protected $table = 'blogs';
     protected $guarded= [];
 
     public function Komentar()
