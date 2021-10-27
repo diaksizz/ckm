@@ -23,7 +23,7 @@
                             </div>
                             <div class="card-footer" style="background-color: #2C73D2;">
                                 <a class="d-flex justify-content-end"
-                                   href=""  style="color: white"><strong>Read More</strong></a>
+                                   href="{{route('detailArtikel', $i->id}}"  style="color: white"><strong>Read More</strong></a>
                             </div>
                         </div>
                     </div>

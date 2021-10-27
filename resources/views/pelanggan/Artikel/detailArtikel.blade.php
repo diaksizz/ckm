@@ -7,7 +7,7 @@
         {{--            <ol class="breadcrumb">--}}
         {{--                <li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"> </i> Home</a></li>--}}
         {{--                <li class="breadcrumb-item"><a href="/article">Article</a></li>--}}
-        {{--                <li class="breadcrumb-item active" aria-current="page"></li>--}}
+        {{--                <li class="breadcrumb-item active" aria-current="page">{{$artikel->judul}}</li>--}}
         {{--            </ol>--}}
         {{--        </nav>--}}
         <style>
@@ -43,14 +43,14 @@
             <div class="col-lg-8">
 
                 <!-- Title -->
-                <h1 class="mt-2"></h1>
+                <h1 class="mt-2">{{$artikel->judul}}</h1>
                 <!-- Date/Time -->
                 <p class="text-muted"> Oleh <strong>Admin</strong>
-                    pada </p>
+                    pada {{Carbon\Carbon::parse($artikel->created_at)->isoFormat('D MMMM Y')}}</p>
                 <hr>
-                <img title="" class="img-fluid rounded"
-                     src=""
-                     alt="">
+                <img title="{{$artikel->judul}}" class="img-fluid rounded"
+                     src="{{asset('storage/images/artikel/'.$artikel->foto)}}"
+                     alt="{{$artikel->judul}}">
                 <!-- Post Content -->
                 <hr>
                 <p class="" style="font-size: 20px; font-weight: 350;"></p>

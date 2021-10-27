@@ -12,19 +12,19 @@ class ArtikelController extends Controller
 {
     public function allArtikel()
     {
-      $artikel = Blog::all();
+      $artikel = Blog::paginate(6);
 
       return view('pelanggan.Artikel.index', compact('artikel'));
     }
 
-    public function detailArtikel()
+    public function detailArtikel($id)
     {
-        // $artikel = artikel::where('artikel_slug',$artikel_slug)->first();
-        // $komentars = komentar_artikel::where('artikel_id',$artikel->artikel_id)->get();
-        // $countkomen= komentar_artikel::where('artikel_id',$artikel->artikel_id)->count();
-        // $news = artikel::orderBy('created_at', 'desc')->take(5)->get();
-        //
-        // return view('mahasiswa.Artikel.detailArtikel', compact('artikel','komentars','countkomen','news'));
+        $artikel = Blog::where('id',$id)->first();
+        $komentars = Komentar::where('id_blog',$artikel->id_blog)->get();
+        $countkomen= Komentar::where('id_blog',$artikel->id_blog)->count();
+        $news = Blog::orderBy('created_at', 'desc')->take(5)->get();
+
+        return view('mahasiswa.Artikel.detailArtikel', compact('artikel','komentars','countkomen','news'));
     }
 
     public function listArtikel()
